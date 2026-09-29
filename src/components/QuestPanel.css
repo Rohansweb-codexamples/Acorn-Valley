@@ -1,0 +1,133 @@
+.quest-panel {
+  position: absolute;
+  left: 12px;
+  top: 72px;
+  width: 240px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quest-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(238, 220, 186, 0.96);
+  border: 2px solid #5D4037;
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  animation: slideInLeft 0.3s ease;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.quest-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #81C784, #66BB6A);
+  border: 2px solid #5D4037;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.quest-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.quest-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.quest-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8D6E63;
+}
+
+.quest-task {
+  font-size: 14px;
+  font-weight: 700;
+  color: #3E2723;
+  line-height: 1.2;
+}
+
+.quest-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.quest-progress-bar {
+  flex: 1;
+  height: 5px;
+  background: #D7CCC8;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.quest-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FFB74D, #FF9800);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.quest-progress-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8D6E63;
+}
+
+.quest-claim {
+  background: linear-gradient(135deg, #66BB6A, #43A047);
+  border: 2px solid #2E7D32;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  animation: claimPulse 1s ease-in-out infinite;
+  color: #fff;
+  font-family: inherit;
+}
+
+@keyframes claimPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); }
+  50% { transform: scale(1.08); box-shadow: 0 4px 12px rgba(67, 160, 71, 0.5); }
+}
+
+.quest-claim-check {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.quest-claim-text {
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.quest-reward-preview {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8D6E63;
+  white-space: nowrap;
+  flex-shrink: 0;
+}

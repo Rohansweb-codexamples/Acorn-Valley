@@ -1,0 +1,58 @@
+.bottom-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+
+.control-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(238, 220, 186, 0.96);
+  border: 2px solid #5D4037;
+  border-radius: 36px;
+  padding: 6px 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.control-btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.control-btn:active {
+  transform: scale(0.94);
+}
+
+.control-btn-side {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D7CCC8, #BCAAA4);
+  border: 2px solid #8D6E63;
+  font-size: 20px;
+}
+
+.control-btn-main {
+  height: 52px;
+  padding: 0 32px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #66BB6A, #43A047);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: 2px solid #2E7D32;
+  box-shadow: 0 3px 8px rgba(46, 125, 50, 0.4);
+}
+
+.control-btn-main:hover {
+  filter: brightness(1.08);
+}

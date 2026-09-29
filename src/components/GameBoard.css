@@ -1,0 +1,157 @@
+.game-board {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.board-inner {
+  position: absolute;
+  inset: 0;
+  transform: scale(1);
+  transform-origin: center 40%;
+}
+
+/* --- Tiles --- */
+.tile {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: linear-gradient(
+    160deg,
+    var(--tile-top) 0%,
+    var(--tile-bottom) 100%
+  );
+  cursor: default;
+  transition: filter 0.15s ease;
+}
+
+.tile-water {
+  animation: waterShimmer 3s ease-in-out infinite;
+}
+
+@keyframes waterShimmer {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.12) saturate(1.15); }
+}
+
+.tile-buildable {
+  cursor: pointer;
+  filter: brightness(1.15);
+  animation: buildablePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes buildablePulse {
+  0%, 100% { filter: brightness(1.15); }
+  50% { filter: brightness(1.35); }
+}
+
+/* --- Decorations --- */
+.deco {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  line-height: 1;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+  pointer-events: none;
+}
+
+/* --- Buildings --- */
+.building {
+  position: absolute;
+  transform: translate(-50%, -92%);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.35));
+}
+
+.building:hover {
+  transform: translate(-50%, -94%) scale(1.04);
+}
+
+.building img {
+  width: 130px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.building-ready {
+  animation: readyBounce 0.8s ease-in-out infinite;
+}
+
+@keyframes readyBounce {
+  0%, 100% { transform: translate(-50%, -92%); }
+  50% { transform: translate(-50%, -95%); }
+}
+
+.ready-indicator {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.ready-icon {
+  font-size: 26px;
+  display: block;
+  animation: readyIconBounce 0.6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes readyIconBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-6px); }
+}
+
+/* --- Characters --- */
+.character {
+  position: absolute;
+  transform: translate(-50%, -85%);
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.character img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.char-sheep {
+  animation: bobble 2.5s ease-in-out infinite;
+}
+
+.char-rabbit {
+  animation: bobble 2.8s ease-in-out infinite 0.3s;
+}
+
+.char-acorn {
+  animation: bobble 3s ease-in-out infinite 0.6s;
+}
+
+@keyframes bobble {
+  0%, 100% { transform: translate(-50%, -85%); }
+  50% { transform: translate(-50%, -88%); }
+}
+
+/* --- Floaters --- */
+.floater {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 2px #fff;
+  pointer-events: none;
+  animation: floatUp 2s ease-out forwards;
+  white-space: nowrap;
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  20% { opacity: 1; transform: translate(-50%, -70%) scale(1.1); }
+  100% { opacity: 0; transform: translate(-50%, -180%) scale(1); }
+}
