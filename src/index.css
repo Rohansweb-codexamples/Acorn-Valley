@@ -17,3 +17,76 @@ html, body, #root {
 body {
   background: #2d5a27;
 }
+
+/* --- CSS-drawn resource icons (no emoji) --- */
+
+.icon-acorn {
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  position: relative;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.icon-acorn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  width: 14px;
+  height: 12px;
+  background: linear-gradient(135deg, #D4A045, #B8860B);
+  border-radius: 40% 40% 50% 50%;
+  border: 1px solid #8B6914;
+}
+.icon-acorn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 10px;
+  height: 7px;
+  background: linear-gradient(135deg, #8B5A2B, #654321);
+  border-radius: 50% 50% 30% 30%;
+  border: 1px solid #5D3A1A;
+}
+
+.icon-star {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #FFD700, #FFA000);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Larger acorn for floating ready indicator on buildings */
+.ready-acorn {
+  display: block;
+  width: 22px;
+  height: 26px;
+  position: relative;
+}
+.ready-acorn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  width: 20px;
+  height: 16px;
+  background: linear-gradient(135deg, #F4B942, #C68A10);
+  border-radius: 40% 40% 50% 50%;
+  border: 1px solid #8B6914;
+}
+.ready-acorn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 14px;
+  height: 10px;
+  background: linear-gradient(135deg, #8B5A2B, #5D3A1A);
+  border-radius: 50% 50% 30% 30%;
+  border: 1px solid #4E342E;
+}

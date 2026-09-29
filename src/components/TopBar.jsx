@@ -17,11 +17,11 @@ export default function TopBar({ acorns, stars, level, xp, xpToNext }) {
       </div>
       <div className="top-right">
         <div className="resource">
-          <span className="resource-icon">🌰</span>
+          <span className="icon-acorn" />
           <span className="resource-value">{acorns}</span>
         </div>
         <div className="resource">
-          <span className="resource-icon">⭐</span>
+          <span className="icon-star" />
           <span className="resource-value">{stars}</span>
         </div>
       </div>

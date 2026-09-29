@@ -152,7 +152,7 @@ export function useGameState() {
           q.id === questId ? { ...q, claimed: true, status: 'claimed' } : q
         )
       );
-      addFloater(`+${quest.reward.stars}⭐ +${quest.reward.acorns}🌰`, 5, 5, '#FFD700');
+      addFloater(`+${quest.reward.acorns} acorns  +${quest.reward.stars} stars`, 5, 5, '#FFD700');
     },
     [quests, addFloater]
   );

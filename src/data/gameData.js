@@ -3,7 +3,7 @@ import { ASSETS } from './assets.js';
 // Isometric tile dimensions
 export const TILE_W = 80;
 export const TILE_H = 40;
-export const GRID_SIZE = 10;
+export const GRID_SIZE = 14;
 
 // Convert grid coordinates to screen position
 export function tileToScreen(col, row) {
@@ -13,18 +13,22 @@ export function tileToScreen(col, row) {
   };
 }
 
-// Tile types: G=grass, W=water, P=path, B=bridge
+// Tile types: G=grass, W=water, P=path(road), B=bridge
 export const TILE_MAP = [
-  ['G','G','G','G','G','G','G','G','G','G'],
-  ['G','G','G','P','P','P','G','G','G','G'],
-  ['G','G','G','P','G','P','G','G','G','G'],
-  ['G','W','W','W','G','P','G','G','G','G'],
-  ['G','G','W','W','W','P','P','G','G','G'],
-  ['G','G','G','W','W','W','P','G','G','G'],
-  ['G','G','G','G','W','W','P','P','G','G'],
-  ['G','G','G','G','G','W','W','P','G','G'],
-  ['G','G','G','G','G','G','G','P','P','G'],
-  ['G','G','G','G','G','G','G','G','G','G'],
+  ['G','G','G','G','G','G','G','G','G','G','G','G','G','G'],
+  ['G','G','G','P','P','P','P','P','G','G','G','G','G','G'],
+  ['G','G','G','P','G','G','G','P','G','G','G','G','G','G'],
+  ['G','W','W','W','G','G','G','P','G','G','G','G','G','G'],
+  ['G','G','W','W','W','G','G','P','P','G','G','G','G','G'],
+  ['G','G','G','W','W','W','G','G','P','G','G','G','G','G'],
+  ['G','G','G','G','W','W','W','G','P','P','G','G','G','G'],
+  ['G','G','G','G','G','W','W','G','G','P','G','G','G','G'],
+  ['G','G','G','P','P','B','W','W','G','P','G','G','G','G'],
+  ['G','G','G','P','G','G','G','W','W','P','P','G','G','G'],
+  ['G','G','G','P','G','G','G','G','W','W','G','G','G','G'],
+  ['G','G','G','P','P','G','G','G','G','W','G','G','G','G'],
+  ['G','G','G','G','P','P','G','G','G','W','W','G','G','G'],
+  ['G','G','G','G','G','P','P','P','G','G','W','G','G','G'],
 ];
 
 export const TILE_COLORS = {
@@ -66,33 +70,14 @@ export const BUILDING_TYPES = {
 
 export const INITIAL_BUILDINGS = [
   { id: 'b1', type: 'bakery', col: 2, row: 1, lastProduced: Date.now() - 22000, ready: false },
-  { id: 'b2', type: 'windmill', col: 8, row: 0, lastProduced: Date.now() - 12000, ready: false },
-  { id: 'b3', type: 'cottage', col: 2, row: 7, lastProduced: Date.now() - 42000, ready: false },
+  { id: 'b2', type: 'windmill', col: 11, row: 0, lastProduced: Date.now() - 12000, ready: false },
+  { id: 'b3', type: 'cottage', col: 2, row: 8, lastProduced: Date.now() - 42000, ready: false },
 ];
 
 export const INITIAL_CHARACTERS = [
   { id: 'c1', type: 'sheep', col: 4, row: 6, image: ASSETS.sheep, size: 70 },
-  { id: 'c2', type: 'rabbit', col: 5, row: 1, image: ASSETS.rabbit, size: 65 },
-  { id: 'c3', type: 'acorn', col: 7, row: 8, image: ASSETS.acorn, size: 55 },
-];
-
-export const DECORATIONS = [
-  { col: 0, row: 0, emoji: '🌳', size: 28 },
-  { col: 9, row: 1, emoji: '🌳', size: 28 },
-  { col: 0, row: 9, emoji: '🌳', size: 28 },
-  { col: 9, row: 9, emoji: '🌳', size: 28 },
-  { col: 6, row: 0, emoji: '🌿', size: 22 },
-  { col: 1, row: 4, emoji: '🌿', size: 22 },
-  { col: 8, row: 5, emoji: '🌿', size: 22 },
-  { col: 4, row: 8, emoji: '🌳', size: 28 },
-  { col: 0, row: 6, emoji: '🪨', size: 20 },
-  { col: 9, row: 3, emoji: '🪨', size: 20 },
-  { col: 6, row: 9, emoji: '🌼', size: 16 },
-  { col: 1, row: 2, emoji: '🌼', size: 16 },
-  { col: 8, row: 2, emoji: '🌼', size: 16 },
-  { col: 3, row: 8, emoji: '🌼', size: 16 },
-  { col: 7, row: 5, emoji: '🌾', size: 20 },
-  { col: 9, row: 7, emoji: '🌾', size: 20 },
+  { id: 'c2', type: 'rabbit', col: 6, row: 1, image: ASSETS.rabbit, size: 65 },
+  { id: 'c3', type: 'acorn', col: 10, row: 12, image: ASSETS.acorn, size: 55 },
 ];
 
 export const INITIAL_QUESTS = [

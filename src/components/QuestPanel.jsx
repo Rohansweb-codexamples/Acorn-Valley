@@ -40,7 +40,7 @@ export default function QuestPanel({ quests, onClaim }) {
           )}
           {quest.status === 'active' && (
             <div className="quest-reward-preview">
-              🌰{quest.reward.acorns} ⭐{quest.reward.stars}
+              <span className="icon-acorn" />{quest.reward.acorns} <span className="icon-star" />{quest.reward.stars}
             </div>
           )}
         </div>

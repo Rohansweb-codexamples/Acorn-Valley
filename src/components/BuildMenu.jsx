@@ -12,7 +12,7 @@ export default function BuildMenu({ acorns, onSelect, onClose }) {
           <button className="build-menu-close" onClick={onClose}>✕</button>
         </div>
         <div className="build-menu-acorns">
-          <span>🌰</span> {acorns} acorns available
+          <span className="icon-acorn" /> {acorns} acorns available
         </div>
         <div className="build-menu-grid">
           {entries.map(([key, def]) => {
@@ -31,10 +31,10 @@ export default function BuildMenu({ acorns, onSelect, onClose }) {
                   <div className="build-card-name">{def.name}</div>
                   <div className="build-card-desc">{def.description}</div>
                   <div className="build-card-cost">
-                    <span className="cost-icon">🌰</span> {def.cost}
+                    <span className="icon-acorn" /> {def.cost}
                   </div>
                   <div className="build-card-prod">
-                    Produces 🌿{def.productionAmount} acorns / {def.productionRate}s
+                    Produces {def.productionAmount} acorns / {def.productionRate}s
                   </div>
                 </div>
               </button>

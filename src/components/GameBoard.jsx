@@ -7,7 +7,6 @@ import {
   GRID_SIZE,
   tileToScreen,
   INITIAL_CHARACTERS,
-  DECORATIONS,
   BUILDING_TYPES,
 } from '../data/gameData.js';
 import './GameBoard.css';
@@ -60,25 +59,6 @@ export default function GameBoard({
           );
         })}
 
-        {/* Decorations */}
-        {DECORATIONS.map((deco, i) => {
-          const { x, y } = tileToScreen(deco.col, deco.row);
-          return (
-            <div
-              key={`deco-${i}`}
-              className="deco"
-              style={{
-                left: `calc(50% + ${x}px)`,
-                top: `calc(50% + ${y + TILE_H / 2}px)`,
-                fontSize: `${deco.size}px`,
-                zIndex: (deco.col + deco.row) * 10 + 1,
-              }}
-            >
-              {deco.emoji}
-            </div>
-          );
-        })}
-
         {/* Buildings */}
         {buildings.map((building) => {
           const def = BUILDING_TYPES[building.type];
@@ -97,7 +77,7 @@ export default function GameBoard({
               <img src={def.image} alt={def.name} draggable={false} />
               {building.ready && (
                 <div className="ready-indicator">
-                  <span className="ready-icon">🌰</span>
+                  <span className="ready-acorn" />
                 </div>
               )}
             </div>
