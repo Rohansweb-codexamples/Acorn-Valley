@@ -1,0 +1,168 @@
+.game-board {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.board-inner {
+  position: absolute;
+  inset: 0;
+  transform: scale(1);
+  transform-origin: center 40%;
+}
+
+/* --- Tiles --- */
+.tile {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: linear-gradient(
+    160deg,
+    var(--tile-top) 0%,
+    var(--tile-bottom) 100%
+  );
+  cursor: default;
+  transition: filter 0.15s ease;
+}
+
+/* Cobblestone road tiles */
+.tile-p {
+  background:
+    radial-gradient(ellipse 12px 6px at 20% 25%, #C4C4C4 50%, transparent 55%),
+    radial-gradient(ellipse 10px 5px at 65% 20%, #B8B8B8 50%, transparent 55%),
+    radial-gradient(ellipse 14px 7px at 40% 55%, #C0C0C0 50%, transparent 55%),
+    radial-gradient(ellipse 10px 5px at 75% 60%, #A8A8A8 50%, transparent 55%),
+    radial-gradient(ellipse 8px 4px at 15% 80%, #B0B0B0 50%, transparent 55%),
+    radial-gradient(ellipse 12px 6px at 60% 85%, #ACACAC 50%, transparent 55%),
+    linear-gradient(160deg, #989898, #787878);
+}
+
+/* Wooden bridge tiles */
+.tile-b {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 7px,
+      rgba(62, 39, 35, 0.35) 7px,
+      rgba(62, 39, 35, 0.35) 8px
+    ),
+    linear-gradient(160deg, #A1887F, #8D6E63);
+}
+
+.tile-water {
+  animation: waterShimmer 3s ease-in-out infinite;
+}
+
+@keyframes waterShimmer {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.12) saturate(1.15); }
+}
+
+.tile-buildable {
+  cursor: pointer;
+  filter: brightness(1.15);
+  animation: buildablePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes buildablePulse {
+  0%, 100% { filter: brightness(1.15); }
+  50% { filter: brightness(1.35); }
+}
+
+/* --- Buildings --- */
+.building {
+  position: absolute;
+  transform: translate(-50%, -92%);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.35));
+}
+
+.building:hover {
+  transform: translate(-50%, -94%) scale(1.04);
+}
+
+.building img {
+  width: 130px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.building-ready {
+  animation: readyBounce 0.8s ease-in-out infinite;
+}
+
+@keyframes readyBounce {
+  0%, 100% { transform: translate(-50%, -92%); }
+  50% { transform: translate(-50%, -95%); }
+}
+
+.ready-indicator {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: readyIconBounce 0.6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes readyIconBounce {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(-6px); }
+}
+
+/* --- Characters --- */
+.character {
+  position: absolute;
+  transform: translate(-50%, -85%);
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.character img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.char-sheep {
+  animation: bobble 2.5s ease-in-out infinite;
+}
+
+.char-rabbit {
+  animation: bobble 2.8s ease-in-out infinite 0.3s;
+}
+
+.char-acorn {
+  animation: bobble 3s ease-in-out infinite 0.6s;
+}
+
+@keyframes bobble {
+  0%, 100% { transform: translate(-50%, -85%); }
+  50% { transform: translate(-50%, -88%); }
+}
+
+/* --- Floaters --- */
+.floater {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 2px #fff;
+  pointer-events: none;
+  animation: floatUp 2s ease-out forwards;
+  white-space: nowrap;
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  20% { opacity: 1; transform: translate(-50%, -70%) scale(1.1); }
+  100% { opacity: 0; transform: translate(-50%, -180%) scale(1); }
+}
